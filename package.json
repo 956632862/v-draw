@@ -8,23 +8,25 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@commitlint/cli": "^16.0.0",
-    "@commitlint/config-conventional": "^16.0.0",
-    "commitizen": "^4.2.4",
+    "commitlint-config-cz": "^0.13.3",
     "core-js": "^3.6.5",
-    "husky": "^7.0.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.0.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^7.0.4",
     "lint-staged": "^9.5.0",
     "vue-template-compiler": "^2.6.11"
   },
@@ -40,12 +42,12 @@
   "husky": {
     "hooks": {
       "pre-commit": "eslint src --fix --ext .js",
-      "commit-msg": "commitlint -e"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "node_modules/cz-customizable"
     }
   }
 }
