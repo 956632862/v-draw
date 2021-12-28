@@ -21,29 +21,23 @@
 </template>
 
 <script>
-/**
- * 需要暴露的参数
- * backgroundColor:背景颜色 传入就会修改
- * 画笔颜色，阴影颜色 setWriteConfig  外部直接传入
- * 画笔大小   setWriteConfig  外部直接传入
- */
 import mixin from "./mixin.js"
 export default {
   name: "v-draw",
   mixins:[ mixin ],
-  mounted() {
-    this.init()
-  },
   props:{
     backgroundColor:{
       type:String,
-      default:()=>'white'
+      default:()=>'beige'
     }
   },
   watch:{
     backgroundColor(n){
       this.setBgColor(n)
     }
+  },
+  mounted() {
+    this.init()
   },
   methods:{
     init(){
@@ -72,8 +66,9 @@ export default {
     },
 
     // 清空画布
-    clearCanvas(){
-      const  { clientWidth,clientHeight } = this.$refs.draw
+    clearCanvas()
+    {
+      const { clientWidth,clientHeight } = this.$refs.draw
       this.context.clearRect(0,0,clientWidth,clientHeight);
       this.lines = []
       this.nextHandle = []
@@ -84,7 +79,8 @@ export default {
     },
 
     // 结束绘画
-    handleOverMove(){
+    handleOverMove()
+    {
       this.canvasMoveUse = false
       this.$emit("drawEnd")
       // 往记录中添加短点
@@ -92,13 +88,15 @@ export default {
     },
 
     // 生成图片
-    createImage(){
+    createImage()
+    {
       this.image = this.$refs.draw.toDataURL("image/png",1)
       this.$emit("createImgCallback",this.image)
     },
 
     // 选择图片设置
-    handleSetImg(url = null){
+    handleSetImg(url = null)
+    {
       if (url){
         this.putOnlineImagToCanvas(url)
         return false
@@ -111,7 +109,8 @@ export default {
     },
 
     // 将网络图片更新到画布上
-    putOnlineImagToCanvas(url){
+    putOnlineImagToCanvas(url)
+    {
       const image = new Image();
       image.src = url
       image.setAttribute("crossOrigin", "anonymous");
@@ -128,7 +127,8 @@ export default {
       }
     },
 
-    putImageToCanvas(event){
+    putImageToCanvas(event)
+    {
       const e = event.target;
       const { files } = e; // 拿到所有的文件
       // eslint-disable-next-line prefer-destructuring
@@ -155,7 +155,8 @@ export default {
     },
 
     // 重新绘制之前绘画
-    resetLine(){
+    resetLine()
+    {
       this.context.beginPath();
       // 这里是将绘制的记录返回回来，但是这里返回之后，就没法再进行上下了
       this.lines.forEach((item,index) => {
@@ -175,7 +176,8 @@ export default {
     },
 
     // 上一步
-    handlePre(){
+    handlePre()
+    {
       if(!this.preHandle.length) return false
       const preKey =  this.preHandle.length - 1
       const pre =  this.preHandle.pop()
@@ -191,7 +193,8 @@ export default {
     },
 
     // 下一步
-    handleNext(){
+    handleNext()
+    {
       if(!this.nextHandle.length) return false
       const next = this.nextHandle.pop()
       // 这里应该是把当前的canvas保存进下一步
@@ -204,8 +207,10 @@ export default {
         this.lines.push(item)
       })
     },
+
     // 设置画笔配置
-    setWriteConfig({ shadowColor = this.config.shadowColor,strokeStyle = this.config.strokeStyle,lineWidth = this.config.lineWidth,shadowBlur = this.config.shadowBlur }){
+    setWriteConfig({ shadowColor = this.config.shadowColor,strokeStyle = this.config.strokeStyle,lineWidth = this.config.lineWidth,shadowBlur = this.config.shadowBlur })
+    {
       this.config.shadowColor = shadowColor
       this.config.strokeStyle = strokeStyle
       this.config.lineWidth = lineWidth
@@ -214,7 +219,8 @@ export default {
     },
 
     // 设置画笔的配置
-    handleSetConfig(){
+    handleSetConfig()
+    {
       this.context.lineWidth = this.config.lineWidth
       this.context.shadowBlur = this.config.shadowBlur
       this.context.shadowColor = this.config.shadowColor
@@ -222,7 +228,8 @@ export default {
     },
 
     // 在canvas中按下鼠标
-    handleDownCanvas(e){
+    handleDownCanvas(e)
+    {
       e.preventDefault();
       // 触发开始移动函数
       this.$emit('drawStart')
@@ -254,7 +261,8 @@ export default {
     },
 
     // 移动
-    handleMove(e){
+    handleMove(e)
+    {
       e.preventDefault();
       this.$emit("drawing")
       if (!this.canvasMoveUse) return
