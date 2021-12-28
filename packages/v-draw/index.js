@@ -1,4 +1,4 @@
-import vScrawl from "./src/v-scrawl"
+import vScrawl from "./src/v-draw"
 
 // 为组件提供 install 安装方法，供按需引入
 vScrawl.install = function (Vue) {

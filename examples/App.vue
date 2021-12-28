@@ -1,6 +1,6 @@
 <template>
 <div>
-  <v-scrawl/>
+  <v-draw class="draw-container"/>
 </div>
 </template>
 
@@ -11,5 +11,8 @@ export default {
 </script>
 
 <style scoped>
-
+.draw-container{
+  width: 200px;
+  height: 200px;
+}
 </style>

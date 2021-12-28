@@ -1,7 +1,7 @@
-import vScrawl from "./v-scrawl/src/v-scrawl"
+import vDraw from "./v-draw/src/v-draw"
 
 const components = [
-  vScrawl
+  vDraw
 ]
 
 const install = function (Vue)  {
@@ -16,5 +16,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  vScrawl
+  vDraw
 }
