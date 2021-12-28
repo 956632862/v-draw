@@ -23,7 +23,7 @@
 <script>
 import mixin from "./mixin.js"
 export default {
-  name: "v-draw",
+  name: "vDraw",
   mixins:[ mixin ],
   props:{
     backgroundColor:{

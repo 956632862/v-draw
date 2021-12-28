@@ -21,30 +21,30 @@ yarn install
 <template>
     <div id="app" class="app_">
         <div >
-            <v-draw
+            <vDraw
                 class="test"
                 ref="scrawl"
             />
         </div>
     </div>
 </template>
-import vScrawl from "v-draw/src/scrawl/v-draw"
+import {vDraw} from "v-draw"
 export default {
     name: 'App',
     components: {
-        vScrawl
+        vDraw
     },
 }
 ```
 * 全局使用
 ```js
-import vScrawl from "v-draw"
-Vue.use(vScrawl)
+import vDraw from "v-draw"
+Vue.use(vDraw)
 
 <template>
     <v-draw
         class="test"
-        ref="scrawl"
+        ref="vDraw"
     />
 </template>
 ```
