@@ -28,7 +28,7 @@ yarn install
         </div>
     </div>
 </template>
-import {vDraw} from "v-draw"
+import vDraw from "v-draw/packages/v-draw"
 export default {
     name: 'App',
     components: {

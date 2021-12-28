@@ -1,11 +1,18 @@
 {
   "name": "v-draw",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Canvas画板，支持撤销，回滚，生成图片等操作",
   "main": "lib/vdraw.umd.min.js",
   "private": false,
   "keyword": "涂鸦 画板 draw",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/956632862/v-draw/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:956632862/v-draw.git"
+  },
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
