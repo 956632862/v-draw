@@ -1,10 +1,15 @@
 # 忽略目录
+.idea
+.vscode
 examples/
-packages/
 public/
 
 # 忽略指定文件
 vue.config.js
 babel.config.js
+.commitlint.config.js
+.cz-config.js
+*.log
 *.map
+
 

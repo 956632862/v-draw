@@ -1,17 +1,15 @@
 <template>
 <div>
-  <v-draw class="draw-container"/>
-  <!--<vDraw/>-->
+  <vdrwa/>
 </div>
 </template>
 
 <script>
-// import {vDraw} from "../packages/index"
+import vdrwa from "../packages/v-draw"
 export default {
   name: 'App',
-  // components:{vDraw},
+  components:{vdrwa},
   mounted() {
-      // console.log(vDraw)
   }
 };
 </script>
