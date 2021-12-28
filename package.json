@@ -1,18 +1,25 @@
 {
-  "name": "v-scrawl",
-  "version": "0.1.0",
-  "private": true,
+  "name": "v-draw",
+  "version": "1.0.0",
+  "description": "Canvas画板，支持撤销，回滚，生成图片等操作",
+  "main": "lib/vdraw.umd.min.js",
+  "private": false,
+  "keyword": "涂鸦 画板 draw",
+  "license": "ISC",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name vdraw --dest lib packages/index.js"
   },
   "dependencies": {
-    "commitlint-config-cz": "^0.13.3",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
+  "peerDependencies": {
+  },
   "devDependencies": {
+    "commitlint-config-cz": "^0.13.3",
     "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
